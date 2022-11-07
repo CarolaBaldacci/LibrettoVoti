@@ -12,22 +12,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.librettovoti.FXMLController">
-   <top>
-      <Label text="Libretto Voti" BorderPane.alignment="CENTER">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
-   </top>
+<BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.librettovoti.FXMLController">
    <center>
       <VBox BorderPane.alignment="CENTER">
          <children>
-            <TextArea fx:id="txtVoti" />
+            <TextArea fx:id="txtVoti" style="-fx-border-color: black;" />
             <GridPane>
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="234.0" minWidth="10.0" prefWidth="143.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="337.0" minWidth="10.0" prefWidth="335.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -35,17 +28,26 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Nome corso" />
+                  <Label text="Nome Corso" />
                   <Label text="Punteggio" GridPane.rowIndex="1" />
-                  <TextField fx:id="txtNome" GridPane.columnIndex="1" />
+                  <TextField fx:id="txtNome" style="-fx-border-color: black;" GridPane.columnIndex="1" />
                   <ComboBox fx:id="cmbPunti" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Button mnemonicParsing="false" onAction="#handleNuovoVoto" text="Aggiungi" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label fx:id="txtStatus" text="ERRORE: inserire nome e voto!" textFill="#d71515" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
                </children>
             </GridPane>
          </children>
       </VBox>
    </center>
-   <bottom>
-      <Label fx:id="txtStatus" alignment="TOP_LEFT" textAlignment="CENTER" textFill="RED" BorderPane.alignment="CENTER" />
-   </bottom>
+   <top>
+      <Label text="Libretto Voti" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </top>
 </BorderPane>

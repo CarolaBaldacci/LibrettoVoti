@@ -7,23 +7,30 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-
+//MODEL
 public class EntryPoint extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-//        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Scene.fxml")) ;
-        Parent root = loader.load() ;
+     //[Non serve più]Parent root = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));
         
-        FXMLController controller = loader.getController();
+    	
+    	//Creo il Loader per interagire con il Controller e poi lo chiamo con root
+    	//chiamo il file FXML
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("/fxml/Scene.fxml"));
+        Parent root=loader.load();
+        //riferimento alla classe controller
+        FXMLController controller=loader.getController();
         
         
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
+
         
-        Libretto model = new Libretto();
-        controller.setModel(model) ;
+        //Costruisco un Modello per chiamare add() sul controller dalla classe Libretto
+        Libretto model= new Libretto();
+        controller.setModel(model);
+        
         
         stage.setTitle("JavaFX and Maven");
         stage.setScene(scene);
